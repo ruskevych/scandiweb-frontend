@@ -75,7 +75,7 @@ function ProductList() {
                     <Button colorScheme={"green"} >ADD</Button>
                 </NextLink>
                     <Button id="delete-product-btn" colorScheme={"red"} ml={2} onClick={() => {
-                        setTimeout(deleteProductsBySku, 2000);
+                        deleteProductsBySku();
                     }}>MASS DELETE</Button>
 
                     <ColorModeSwitcher ></ColorModeSwitcher>
