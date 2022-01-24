@@ -83,7 +83,7 @@ function ProductList() {
                 </Box>
             </Flex>
             <Flex justifyContent={'center'} alignItems={'center'} width={'100%'} mt={10}>
-                <Grid templateColumns='repeat(4, 1fr)' gap={4} >
+                <Grid templateColumns='repeat(3, 1fr)' gap={4} >
                     <Product
                         productState={productState}
                         setProductState={setProductState} />
