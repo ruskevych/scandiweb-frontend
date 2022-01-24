@@ -29,13 +29,13 @@ function Product(props) {
       <Text>{(parseInt(d.price)).toFixed(2) + " $"}</Text>
       {
       d.type == "Book" && (
-        <Flex alignItems={'center'} flexDirection={'row'}><Text>Weight : </Text> <Text>{d.attribute}</Text></Flex>
+        <Flex alignItems={'center'} justifyContent={'space-between'} flexDirection={'row'}><Text>Weight : </Text> <Text>{d.attribute}</Text></Flex>
       )}
       {d.type == "DVD" && (
-        <Flex alignItems={'center'} flexDirection={'row'}><Text>Size : </Text> <Text>{d.attribute}</Text></Flex>
+        <Flex alignItems={'center'} justifyContent={'space-between'} flexDirection={'row'}><Text>Size : </Text> <Text>{d.attribute}</Text></Flex>
       )}
       {d.type == "Furniture" && (
-        <Flex alignItems={'center'} flexDirection={'row'}><Text>Dimensions : </Text> <Text>{d.attribute}</Text></Flex>
+        <Flex alignItems={'center'} justifyContent={'space-between'} flexDirection={'row'}><Text>Dimensions : </Text> <Text>{d.attribute}</Text></Flex>
       )}
     </Box>
     </GridItem>
