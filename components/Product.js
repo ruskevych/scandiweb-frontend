@@ -8,7 +8,7 @@ function Product(props) {
     <Box borderWidth='1px' borderRadius='lg' overflow='hidden' textAlign={'center'} padding={20} width={'auto'} minW={'sm'}>
         
         <input type='checkbox' className='delete-checkbox'
-          checked={d.select}
+          defaultChecked={d.select}
           onChange={e => {
             let value = e.target.checked;
             
