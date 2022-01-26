@@ -1,6 +1,11 @@
-import { Box, Select, Input, InputGroup, InputLeftElement , FormControl, FormLabel,FormErrorMessage, Button, Flex } from "@chakra-ui/react";
+import { Select, Input, FormControl, FormLabel,
+  FormErrorMessage, Button, Flex,
+  NumberInput,
+  NumberInputField,
+  NumberInputStepper,
+  NumberIncrementStepper,
+  NumberDecrementStepper, } from "@chakra-ui/react";
 import React, {useState} from "react";
-import { useForm } from "react-hook-form";
 import axios from 'axios';
 import { useRouter } from 'next/router'
 import NextLink from 'next/link';
@@ -10,21 +15,18 @@ import NextLink from 'next/link';
 
 
 
-export default function Test(props){
+export default function AddProduct(){
   const [skuInput, setSkuInput] = useState(' ')
   const [nameInput, setNameInput] = useState(' ')
-  const [priceInput, setPriceInput] = useState('0')
   const [typeInput, setTypeInput] = useState(' ')
 
 
   const handleSkuInputChange = (e) => {setSkuInput(e.target.value); setSkuExistError(false)}
   const handleNameInputChange = (e) => setNameInput(e.target.value)
-  const handlePriceInputChange = (e) => setPriceInput(e.target.value)
   const handleTypeInputChange = (e) => setTypeInput(e.target.value)
 
 
   const isSkuError = skuInput==="";
-  const isPriceError = !( /\d/.test(priceInput));
   const isNameError = nameInput==="";
   const isTypeError = typeInput==="";
 
@@ -141,19 +143,17 @@ export default function Test(props){
                    <FormErrorMessage>Name is required.</FormErrorMessage>
                 )}
             </FormControl>          
-            <FormControl isRequired isInvalid={isPriceError}> 
-                <FormLabel htmlFor='price'>Price ($)</FormLabel>
-
+            <FormControl isRequired > 
+                <FormLabel htmlFor='price'>Price($)</FormLabel>
+                <NumberInput id="price"  name="price">
+                  <NumberInputField placeholder='Enter amount'/>
+                  <NumberInputStepper>
+                    <NumberIncrementStepper />
+                    <NumberDecrementStepper />
+                  </NumberInputStepper>
+                </NumberInput>
                 
-
-                    <Input id="price"  placeholder='Enter amount' name="price" onChange={handlePriceInputChange}/>
                 
-                {/* 
-                  If Price contains not a number we throw an error 
-                */}
-                {isPriceError&&(
-                   <FormErrorMessage>Price must be a number</FormErrorMessage>
-                )}
             </FormControl> 
             <FormControl isRequired isInvalid = {isTypeError}>
                 <FormLabel htmlFor='name'>Type</FormLabel>
@@ -175,7 +175,13 @@ export default function Test(props){
               {typeInput === 'Book' && (
                   <FormControl isRequired>
                       <FormLabel htmlFor='weight'>Weight in KG</FormLabel>
-                      <Input id="weight" name="weight" placeholder="Enter weight" />
+                      <NumberInput id="weight" name="weight"  >
+                        <NumberInputField placeholder="Enter weight"/>
+                        <NumberInputStepper>
+                          <NumberIncrementStepper />
+                          <NumberDecrementStepper />
+                        </NumberInputStepper>
+                      </NumberInput>
                   </FormControl>
               )}
               {/* 
@@ -184,7 +190,13 @@ export default function Test(props){
               {typeInput === "DVD" && (
                 <FormControl isRequired>
                     <FormLabel htmlFor='size'>Size in MB</FormLabel>
-                    <Input id="size" name="size" placeholder="Enter size" />
+                    <NumberInput id="size" name="size" >
+                        <NumberInputField placeholder="Enter size"/>
+                        <NumberInputStepper>
+                          <NumberIncrementStepper />
+                          <NumberDecrementStepper />
+                        </NumberInputStepper>
+                      </NumberInput>
                 </FormControl>
 
               )}
@@ -196,15 +208,33 @@ export default function Test(props){
                     <FormLabel htmlFor='dimensions'>Dimensions</FormLabel>
                     <FormControl isRequired>
                       <FormLabel htmlFor='size'>Height in CM</FormLabel>
-                      <Input id="height" name="height" placeholder="Enter height" />
+                      <NumberInput id="height" name="height"   >
+                        <NumberInputField placeholder="Enter height"/>
+                        <NumberInputStepper>
+                          <NumberIncrementStepper />
+                          <NumberDecrementStepper />
+                        </NumberInputStepper>
+                      </NumberInput>
                     </FormControl>
                     <FormControl isRequired>
                         <FormLabel htmlFor='width'>Width in CM</FormLabel>
-                        <Input id="width" name="width" placeholder="Enter width" />
+                        <NumberInput id="width" name="width" >
+                        <NumberInputField placeholder="Enter width"/>
+                        <NumberInputStepper>
+                          <NumberIncrementStepper />
+                          <NumberDecrementStepper />
+                        </NumberInputStepper>
+                      </NumberInput>
                     </FormControl>
                     <FormControl isRequired>
                           <FormLabel htmlFor='length'>Length in CM</FormLabel>
-                          <Input id="length" name="length" placeholder="Enter length" />
+                          <NumberInput id="length" name="length" >
+                            <NumberInputField placeholder="Enter length"/>
+                            <NumberInputStepper>
+                              <NumberIncrementStepper />
+                              <NumberDecrementStepper />
+                            </NumberInputStepper>
+                          </NumberInput>
                     </FormControl></>
               )}
               <Flex mt={5} alignItems={'center'} justifyContent={'space-between'}>
