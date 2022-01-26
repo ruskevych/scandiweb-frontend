@@ -16,20 +16,12 @@ import NextLink from 'next/link';
 
 
 export default function AddProduct(){
-  const [skuInput, setSkuInput] = useState(' ')
-  const [nameInput, setNameInput] = useState(' ')
+
   const [typeInput, setTypeInput] = useState(' ')
-
-
-  const handleSkuInputChange = (e) => {setSkuInput(e.target.value); setSkuExistError(false)}
-  const handleNameInputChange = (e) => setNameInput(e.target.value)
+  
   const handleTypeInputChange = (e) => setTypeInput(e.target.value)
 
-
-  const isSkuError = skuInput==="";
-  const isNameError = nameInput==="";
-  const isTypeError = typeInput==="";
-
+  
   const [skuExistError, setSkuExistError] = useState(false)
   
   const router = useRouter()
@@ -115,15 +107,9 @@ export default function AddProduct(){
             e.preventDefault();
             submit(e);
             }}>
-            <FormControl isRequired isInvalid={isSkuError || skuExistError}>
+            <FormControl isRequired isInvalid={skuExistError}>
                 <FormLabel htmlFor='name'>SKU</FormLabel>
-                <Input id="sku" placeholder='Enter SKU' name="sku" onChange={handleSkuInputChange}/>
-                {/* 
-                  If sku is empty we throw an error 
-                */}
-                {isSkuError&&(
-                   <FormErrorMessage>SKU is required.</FormErrorMessage>
-                )}
+                <Input id="sku" placeholder='Enter SKU' name="sku"/>
                 {/* 
                   If product with this sku already in DB we throw an error 
                 */}
@@ -132,16 +118,9 @@ export default function AddProduct(){
                 )}
 
             </FormControl>
-            <FormControl isRequired isInvalid={isNameError}>
+            <FormControl isRequired>
                 <FormLabel htmlFor='name'>Name</FormLabel>
-                <Input id="name" placeholder='Enter product name' name="name"  onChange={handleNameInputChange}/>
-                {/* 
-                  If Name is empty we throw an error
-                */}
-                
-                {isNameError&&(
-                   <FormErrorMessage>Name is required.</FormErrorMessage>
-                )}
+                <Input id="name" placeholder='Enter product name' name="name" />
             </FormControl>          
             <FormControl isRequired > 
                 <FormLabel htmlFor='price'>Price($)</FormLabel>
@@ -155,19 +134,14 @@ export default function AddProduct(){
                 
                 
             </FormControl> 
-            <FormControl isRequired isInvalid = {isTypeError}>
+            <FormControl isRequired>
                 <FormLabel htmlFor='name'>Type</FormLabel>
-                <Select id="productType" placeholder="Select type" name="type"  onChange={handleTypeInputChange}>
+                <Select id="productType" placeholder="Select type" name="type" onChange={handleTypeInputChange}>
                     <option value='Book'>Book</option>
                     <option value="DVD">DVD</option>
                     <option value="Furniture">Furniture</option>
                 </Select>
-                {/* 
-                  If type is empty we throw an error 
-                */}
-                {isTypeError&&(
-                   <FormErrorMessage>Type is required</FormErrorMessage>
-                )}
+                
             </FormControl>
             {/* 
                   If user selected Book type we show weight input 
