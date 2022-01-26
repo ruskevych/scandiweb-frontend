@@ -142,12 +142,12 @@ export default function Test(props){
                 )}
             </FormControl>          
             <FormControl isRequired isInvalid={isPriceError}> 
-                <FormLabel htmlFor='price'>Price</FormLabel>
+                <FormLabel htmlFor='price'>Price ($)</FormLabel>
 
-                <InputGroup >
+                
 
                     <Input id="price"  placeholder='Enter amount' name="price" onChange={handlePriceInputChange}/>
-                </InputGroup>
+                
                 {/* 
                   If Price contains not a number we throw an error 
                 */}
