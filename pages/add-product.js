@@ -124,7 +124,7 @@ export default function AddProduct(){
             </FormControl>          
             <FormControl isRequired > 
                 <FormLabel htmlFor='price'>Price($)</FormLabel>
-                <NumberInput id="price"  name="price">
+                <NumberInput id="price"  name="price" min={0}>
                   <NumberInputField placeholder='Enter amount'/>
                   <NumberInputStepper>
                     <NumberIncrementStepper />
@@ -149,7 +149,7 @@ export default function AddProduct(){
               {typeInput === 'Book' && (
                   <FormControl isRequired>
                       <FormLabel htmlFor='weight'>Weight in KG</FormLabel>
-                      <NumberInput id="weight" name="weight"  >
+                      <NumberInput id="weight" name="weight" min={0} >
                         <NumberInputField placeholder="Enter weight"/>
                         <NumberInputStepper>
                           <NumberIncrementStepper />
@@ -164,7 +164,7 @@ export default function AddProduct(){
               {typeInput === "DVD" && (
                 <FormControl isRequired>
                     <FormLabel htmlFor='size'>Size in MB</FormLabel>
-                    <NumberInput id="size" name="size" >
+                    <NumberInput id="size" name="size" min={0}>
                         <NumberInputField placeholder="Enter size"/>
                         <NumberInputStepper>
                           <NumberIncrementStepper />
@@ -182,7 +182,7 @@ export default function AddProduct(){
                     <FormLabel htmlFor='dimensions'>Dimensions</FormLabel>
                     <FormControl isRequired>
                       <FormLabel htmlFor='size'>Height in CM</FormLabel>
-                      <NumberInput id="height" name="height"   >
+                      <NumberInput id="height" name="height" min={0}  >
                         <NumberInputField placeholder="Enter height"/>
                         <NumberInputStepper>
                           <NumberIncrementStepper />
@@ -192,7 +192,7 @@ export default function AddProduct(){
                     </FormControl>
                     <FormControl isRequired>
                         <FormLabel htmlFor='width'>Width in CM</FormLabel>
-                        <NumberInput id="width" name="width" >
+                        <NumberInput id="width" name="width" min={0} >
                         <NumberInputField placeholder="Enter width"/>
                         <NumberInputStepper>
                           <NumberIncrementStepper />
@@ -202,7 +202,7 @@ export default function AddProduct(){
                     </FormControl>
                     <FormControl isRequired>
                           <FormLabel htmlFor='length'>Length in CM</FormLabel>
-                          <NumberInput id="length" name="length" >
+                          <NumberInput id="length" name="length"min={0} >
                             <NumberInputField placeholder="Enter length"/>
                             <NumberInputStepper>
                               <NumberIncrementStepper />
