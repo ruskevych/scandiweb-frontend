@@ -124,7 +124,7 @@ export default function AddProduct(){
             </FormControl>          
             <FormControl isRequired > 
                 <FormLabel htmlFor='price'>Price($)</FormLabel>
-                <NumberInput id="price"  name="price" min={0}>
+                <NumberInput id="price"  name="price" min={0} precision={2}>
                   <NumberInputField placeholder='Enter amount'/>
                   <NumberInputStepper>
                     <NumberIncrementStepper />
@@ -149,7 +149,7 @@ export default function AddProduct(){
               {typeInput === 'Book' && (
                   <FormControl isRequired>
                       <FormLabel htmlFor='weight'>Weight in KG</FormLabel>
-                      <NumberInput id="weight" name="weight" min={0} >
+                      <NumberInput id="weight" name="weight" min={0} precision={2} >
                         <NumberInputField placeholder="Enter weight"/>
                         <NumberInputStepper>
                           <NumberIncrementStepper />
