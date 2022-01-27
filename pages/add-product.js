@@ -118,11 +118,11 @@ export default function AddProduct(){
                 )}
 
             </FormControl>
-            <FormControl isRequired>
+            <FormControl isRequired mt={3}>
                 <FormLabel htmlFor='name'>Name</FormLabel>
                 <Input id="name" placeholder='Enter product name' name="name" />
             </FormControl>          
-            <FormControl isRequired > 
+            <FormControl isRequired mt={3}> 
                 <FormLabel htmlFor='price'>Price($)</FormLabel>
                 <NumberInput id="price"  name="price" min={0} precision={2}>
                   <NumberInputField placeholder='Enter amount'/>
@@ -134,7 +134,7 @@ export default function AddProduct(){
                 
                 
             </FormControl> 
-            <FormControl isRequired>
+            <FormControl isRequired mt={3}>
                 <FormLabel htmlFor='name'>Type</FormLabel>
                 <Select id="productType" placeholder="Select type" name="type" onChange={handleTypeInputChange}>
                     <option value='Book'>Book</option>
@@ -147,9 +147,9 @@ export default function AddProduct(){
                   If user selected Book type we show weight input 
             */}
               {typeInput === 'Book' && (
-                  <FormControl isRequired>
+                  <FormControl isRequired mt={3}>
                       <FormLabel htmlFor='weight'>Weight in KG</FormLabel>
-                      <NumberInput id="weight" name="weight" min={0} precision={2} >
+                      <NumberInput id="weight" name="weight" min={0} precision={2} step={0.1} >
                         <NumberInputField placeholder="Enter weight"/>
                         <NumberInputStepper>
                           <NumberIncrementStepper />
@@ -162,7 +162,7 @@ export default function AddProduct(){
                   If user selected DVD type we show size input 
               */}
               {typeInput === "DVD" && (
-                <FormControl isRequired>
+                <FormControl isRequired mt={3}>
                     <FormLabel htmlFor='size'>Size in MB</FormLabel>
                     <NumberInput id="size" name="size" min={0}>
                         <NumberInputField placeholder="Enter size"/>
@@ -179,8 +179,8 @@ export default function AddProduct(){
               */}
               {typeInput === "Furniture" && (
                   <>
-                    <FormLabel htmlFor='dimensions'>Dimensions</FormLabel>
-                    <FormControl isRequired>
+                    <FormLabel htmlFor='dimensions' mt={5}>Dimensions</FormLabel >
+                    <FormControl isRequired mt={3}>
                       <FormLabel htmlFor='size'>Height in CM</FormLabel>
                       <NumberInput id="height" name="height" min={0}  >
                         <NumberInputField placeholder="Enter height"/>
@@ -190,7 +190,7 @@ export default function AddProduct(){
                         </NumberInputStepper>
                       </NumberInput>
                     </FormControl>
-                    <FormControl isRequired>
+                    <FormControl isRequired mt={3}>
                         <FormLabel htmlFor='width'>Width in CM</FormLabel>
                         <NumberInput id="width" name="width" min={0} >
                         <NumberInputField placeholder="Enter width"/>
@@ -200,7 +200,7 @@ export default function AddProduct(){
                         </NumberInputStepper>
                       </NumberInput>
                     </FormControl>
-                    <FormControl isRequired>
+                    <FormControl isRequired mt={3}>
                           <FormLabel htmlFor='length'>Length in CM</FormLabel>
                           <NumberInput id="length" name="length"min={0} >
                             <NumberInputField placeholder="Enter length"/>
@@ -211,7 +211,7 @@ export default function AddProduct(){
                           </NumberInput>
                     </FormControl></>
               )}
-              <Flex mt={5} alignItems={'center'} justifyContent={'space-between'}>
+              <Flex mt={7} alignItems={'center'} justifyContent={'space-between'}>
                 <Button type="submit" colorScheme={'teal'}>
                   Save
               </Button>
