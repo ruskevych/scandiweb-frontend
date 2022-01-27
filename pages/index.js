@@ -9,7 +9,8 @@ class Home extends React.Component {
 
   componentDidMount(){
     $('#delete-product-btn').click(async ()=>{
-      if (checkboxes = document.getElementsByClassName('delete-checkbox')){
+      checkboxes = document.getElementsByClassName('delete-checkbox');
+      if (checkboxes.length > 0){
         for (let checkbox of checkboxes){
 
             if(checkbox.checked){
